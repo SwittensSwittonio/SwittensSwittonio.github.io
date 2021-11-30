@@ -23,7 +23,13 @@
 	<!-- 	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script> -->
 
 </head>
-<body class="board">
+<body {
+background-image: url("";
+}
+
+
+
+class="board">
 	<!-- HTML for the box -->
 	<div class="box">?</div>
 
@@ -42,6 +48,7 @@
 
 			// Every 50 milliseconds, call the update Function (see below)
 			setInterval(update, 50);
+		
 			
 			// Every time the box is clicked, call the handleBoxClick Function (see below)
 			box.on('click', handleBoxClick);
@@ -64,7 +71,7 @@
 			
 			var positionX = 0;
 			var points = 0;
-
+			var speed = 0;
 
 			/* 
 			This Function will be called 20 times/second. Each time it is called,
@@ -72,9 +79,10 @@
 			turn it around! 
 			*/
 			function update() {
-				positionX = positionX + 10
+				positionX = positionX + speed
 				moveBoxTo(positionX)
-
+				if (positionX > 1250) speed = -speed; {}
+				if (positionX < 0) speed = -speed; {}
 			};
 
 			/* 
@@ -86,7 +94,11 @@
 				positionX = 0;
 				changeBoxText(points);
 				points = points + 1;
-				
+				speed = speed + 3;
+				if (speed = speed) +3;
+				else if (speed = -speed) -3;
+
+
 
 			};
 		})();
