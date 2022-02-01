@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Taco Shop</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <style>
+            #menu, #take-order {
+                display: flex;
+                flex-direction: row;
+            }
+
+            #take-order > p {
+                padding-right: 10px;
+            }
+
+            .menu-item {
+                border: 3px solid gray;
+            }
+
+            .menu-item > h4,
+            .menu-item > img {
+                padding: 10px;
+                padding-bottom: 5px;
+            }
+
+            img {
+                width: 250px;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="all-contents">
+            <nav>
+                <h1>Taco Shop</h1>
+                <div id="take-order">
+                    <p>When you're ready to place your order, click here: </p>
+                    <button>Place Order</button>
+                </div>
+            </nav>
+            <main>
+                <h3>Menu</h3>
+                <div id="menu">
+                    <div id="three-tacos" class="menu-item">
+                        <h4> #1 - Three Tacos</h4>
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSG-phbs_RqH7HoN_2XLKiTXd0zTOeMGLncug&usqp=CAU">
+                        <h4>6.99</h4>
+                    </div>
+                    <div id="five-tacos" class="menu-item">
+                        <h4>#2 - Five Tacos</h4>
+                        <img src="https://i2.wp.com/thesuburbansoapbox.com/wp-content/uploads/2021/02/Birria-Tacos-8.jpg">
+                        <h4>9.99</h4>
+                    </div>
+                    <div id="haircake" class="menu-item">
+                        <h4>#3 - Haircake</h4>
+                        <img src="https://content.instructables.com/ORIG/FA3/AB79/H2MYJVM7/FA3AB79H2MYJVM7.jpg?auto=webp&fit=bounds&frame=1&height=1024&width=1024auto=webp&frame=1&height=150">
+                        <h4>9.99</h4>
+                    </div>
+                    <div id="hugeman" class="menu-item">
+                        <h4>#4 - Hugeman</h4>
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRsAjDrnm40REU94CAReR0FPZjSHgeMewL19g&usqp=CAU">
+                        <h4>100.00</h4>
+                    </div>
+                </div>
+            </main>
+        </div>
+        <script>
+            $('button').on('click', takeOrder);
+            console.log("bababooey");
+
+            var orderNumber = prompt('What combo number would you like to order?');
+            if (orderNumber === '1') {
+    total += 6.99;
+} else if (orderNumber === '2') {
+    total += 9.99;
+} 
+else if (orderNumber === '3') {
+    total += 9.99;
+}
+else if (orderNumber === '4') {
+    total += 100.00;
+}
+else {
+    alert('Sorry, you entered an incorrect combo number');
+}
+
+var chipsAnd = prompt('Would you like chips and queso ($2.99) or chips and guac($3.99)? Type in "queso" for chips and queso, "guac" for chips and quac, or "no" if you want to limit your happiness and not get chips.');
+if (chipsAnd === 'queso') {
+    total += 2.99;
+} else if (chipsAnd === 'guac') {
+    total += 3.99;
+} else if (chipsAnd === 'no') {
+    total += 0;
+} else {
+    alert('Sorry, the information you entered was not correct'); 
+}
+alert('The total for your order is ' + total + '. We\'ll have it out shortly. Thanks for visiting the taco shop, and have a nice day!');
+        </script>
+    </body>
+</html>
