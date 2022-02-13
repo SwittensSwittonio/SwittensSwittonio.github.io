@@ -46,75 +46,66 @@ var init = function (window) {
         */
         function update() {
             // TODO 4 : Update the circle's position //
-            //physikz.updatePosition(circles[0]);
-            //physikz.updatePosition(circles[1]);
-            //physikz.updatePosition(circles[2]);
-            //physikz.updatePosition(circles[3]);
-            //physikz.updatePosition(circles[4]);
+
+
+
+
+            // TODO 5 / 10 : Call game.checkCirclePosition() on your circles.
+
+
+            // TODO 9 : Iterate over the array
+            for (var i = 0; i < circles.length; i++) {
+                physikz.updatePosition(circles[i]);
+                game.checkCirclePosition(circles[i]);
+            }
+
         }
 
+        /* 
+        This Function should check the position of a circle that is passed to the 
+        Function. If that circle drifts off the screen, this Function should move
+        it to the opposite side of the screen.
+        */
+        game.checkCirclePosition = function (circle) {
 
-        // TODO 5 / 10 : Call game.checkCirclePosition() on your circles.
+            // if the circle has gone past the RIGHT side of the screen then place it on the LEFT
+            if (circle.x > canvas.width) {
+                circle.x = 0;
+            }
 
-        //game.checkCirclePosition[0];
-        //game.checkCirclePosition[1];
-        //game.checkCirclePosition[2];
-        //game.checkCirclePosition[3];
-        //game.checkCirclePosition[4];
-        // TODO 9 : Iterate over the array
-        for (var i = 0; i < circles.length; i++) {
-            var eachCircle = circles[i];
-            physikz.updatePosition(eachCircle)
-            // game.checkCirclePosition(eachCircle)
+            // TODO 7 : YOUR CODE STARTS HERE //////////////////////
+            if (circle.y > canvas.height) {
+                circle.y = 0;
+            };
+
+            if (circle.y < 0) {
+                circle.y = canvas.height;
+            };
+
+
+            // YOUR TODO 7 CODE ENDS HERE //////////////////////////
         }
 
+        /////////////////////////////////////////////////////////////
+        // --- NO CODE BELOW HERE  --- DO NOT REMOVE THIS CODE --- //
+        /////////////////////////////////////////////////////////////
+
+        view.addChild(fps);
+        app.addUpdateable(fps);
+
+        game.circle = circle;
+        game.circles = circles;
+        game.drawCircle = drawCircle;
+        game.update = update;
+
+        app.addUpdateable(window.opspark.game);
     }
+        ;
 
-    /* 
-    This Function should check the position of a circle that is passed to the 
-    Function. If that circle drifts off the screen, this Function should move
-    it to the opposite side of the screen.
-    */
-    game.checkCirclePosition = function (circle) {
-
-        // if the circle has gone past the RIGHT side of the screen then place it on the LEFT
-        if (circle.x > canvas.width) {
-            circle.x = 0;
-        }
-        if (circle.y < canvas.height) {
-            circle.y = 0;
-        }
-        if (x < 0) {
-            x = 0;
-        }
-        if (y < 0) {
-            y = 0;
-        }
-        // TODO 7 : YOUR CODE STARTS HERE //////////////////////
-
-
-
-        // YOUR TODO 7 CODE ENDS HERE //////////////////////////
+    // DON'T REMOVE THIS CODE //////////////////////////////////////////////////////
+    if ((typeof process !== 'undefined') &&
+        (typeof process.versions.node !== 'undefined')) {
+        // here, export any references you need for tests //
+        module.exports = init;
     }
-
-    /////////////////////////////////////////////////////////////
-    // --- NO CODE BELOW HERE  --- DO NOT REMOVE THIS CODE --- //
-    /////////////////////////////////////////////////////////////
-
-    view.addChild(fps);
-    app.addUpdateable(fps);
-
-    game.circle = circle;
-    game.circles = circles;
-    game.drawCircle = drawCircle;
-    game.update = update;
-
-    app.addUpdateable(window.opspark.game);
 }
-;
-
-// DON'T REMOVE THIS CODE //////////////////////////////////////////////////////
-if ((typeof process !== 'undefined') &&
-    (typeof process.versions.node !== 'undefined')) {
-    // here, export any references you need for tests //
-    module.exports = init; }
