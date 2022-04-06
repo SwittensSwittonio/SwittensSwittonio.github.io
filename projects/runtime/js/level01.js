@@ -28,9 +28,51 @@ var level01 = function (window) {
         // TODO 6 and on go here
         // BEGIN EDITING YOUR CODE HERE
 
+        var hitZoneSize = 25;
+var damageFromObstacle = 10;
+var sawBladeHitZone = game.createObstacle(hitZoneSize, damageFromObstacle);
+sawBladeHitZone.x = 400;
+sawBladeHitZone.y = 250;
+game.addGameItem(sawBladeHitZone);
+var obstacleImage = draw.bitmap('img/sawblade.png');
+sawBladeHitZone.addChild(obstacleImage);
+
+function createSawBlade(x,y) {
+    
+};
+
+function createMyObstacle(x,y) {
+    
+};
+
+createMyObstacle(100,200);
         
-        
-        
+var enemy = game.createGameItem('enemy',25);
+var redSquare = draw.rect(50,50,'red');
+redSquare.x = -25;
+redSquare.y = -25;
+enemy.addChild(redSquare);
+enemy.x = 300;
+enemy.y = groundY-50;
+game.addGameItem(enemy);
+enemy.velocityX = 10;
+
+enemy.onPlayerCollision = function() {
+    console.log('The enemy has hit Halle');
+};
+
+enemy.fadeOut();
+
+function createEnemy(x,y) {
+    
+}
+
+createEnemy(400,groundY-10);
+createEnemy(800,groundY-100);
+createEnemy(1200,groundY-50);
+
+
+
         // DO NOT EDIT CODE BELOW HERE
     }
 };
