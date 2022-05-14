@@ -48,9 +48,6 @@ moon.y = 50;
 moon.scaleX = 1.0;
 moon.scaleY = 1.0;
 background.addChild(moon);
-
-
-
             
             // TODO 5: Part 1 - Add buildings!     Q: This is before TODO 4 for a reason! Why?
             for(var i=0;i<5;++i) {

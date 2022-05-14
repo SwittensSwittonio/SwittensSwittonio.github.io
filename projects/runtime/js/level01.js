@@ -32,7 +32,7 @@ var level01 = function (window) {
 var damageFromObstacle = 10;
 var sawBladeHitZone = game.createObstacle(hitZoneSize, damageFromObstacle);
 sawBladeHitZone.x = 400;
-sawBladeHitZone.y = 250;
+sawBladeHitZone.y = 425;
 game.addGameItem(sawBladeHitZone);
 var obstacleImage = draw.bitmap('img/sawblade.png');
 sawBladeHitZone.addChild(obstacleImage);
@@ -56,6 +56,7 @@ enemy.x = 300;
 enemy.y = groundY-50;
 game.addGameItem(enemy);
 enemy.velocityX = 10;
+var enemyImage = draw.bitmap('https://c.tenor.com/lOVqHrlKsT0AAAAC/obama-prism.gif');
 
 enemy.onPlayerCollision = function() {
     console.log('The enemy has hit Halle');
